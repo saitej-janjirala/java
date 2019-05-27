@@ -1,4 +1,4 @@
-//a program for an example of n queens i have used 8 queens using java awt to place a queen in correct position when other queens are placed
+//a program for  of n queens problem  i have used 8 queens using java awt to place a queen in correct position when other queens are placed
 import javax.swing.*;
 import javax.swing.text.StyledEditorKit;
 import java.awt.*;
