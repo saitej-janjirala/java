@@ -19,13 +19,14 @@ class Code implements ActionListener
     private int i,j,m,ok;
     private int howmany;
     private int queens[][];
-    private int top,undoarray[][];
+    private int top,undoarray[][],wrong;
     private boolean select[][];
     private Font myfont;
     private boolean checked;
     Code()
     {
         ok=0;
+        wrong=0;
         checked=false;
         frame=new JFrame("FOUR QUEEN");
         panel=new JPanel();
@@ -68,7 +69,7 @@ class Code implements ActionListener
             }
         }
         playagian.addActionListener(this);
-        text.setBounds(200,10,200,50);
+        text.setBounds(200,10,250,50);
         panel.setBounds(20,70,600,600);
         undo.setBounds(650,200,100,100);
         playagian.setBounds(650,400,130,70);
@@ -83,9 +84,7 @@ class Code implements ActionListener
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         for(i=0;i<8;i++){
@@ -104,9 +103,9 @@ class Code implements ActionListener
                                 undoarray[top][1]=j;
                                 select[i][j]=true;
                             } else {
-
-                                text.setText("check the sides and diagonals");
-                                button[i][j].setBackground(Color.RED);
+                                    wrong++;
+                                    button[i][j].setBackground(Color.red);
+                                    text.setText("CHECK THE SIDES AND DIAGONALS");
                             }
                         }
 
@@ -118,7 +117,11 @@ class Code implements ActionListener
             new Code();
         }
         if(e.getSource()==undo){
-            if(top>=0) {
+
+            if(wrong>0){
+                restore();
+            }
+            else if(top>=0) {
                 button[undoarray[top][0]][undoarray[top][1]].setText("");
                 select[undoarray[top][0]][undoarray[top][1]]=false;
                 queens[top][0] = 30;
@@ -127,26 +130,21 @@ class Code implements ActionListener
                 undoarray[top][1] = 67;
                 top--;
                 howmany--;
-
-                restore();
             }
         }
     }
     void restore(){
         text.setText("");
+        wrong=0;
         for(int i1=0;i1<8;i1++)
         {
             for(int j1=0;j1<8;j1++)
             {
-
                 button[i1][j1].setBackground(Color.CYAN);
-
-
             }
         }
     }
     private boolean check(int a1, int a2) {
-
         for (m = 0; m < 8; m++) {
          if(queens[m][0] == a1 || queens[m][1] == a2 || (queens[m][0]+queens[m][1]==a1+a2)||(queens[m][1]+a1==queens[m][0]+a2))
          {
@@ -154,7 +152,6 @@ class Code implements ActionListener
              checked = false;
              break;
          }
-
          else
          {
                 ok++;
@@ -169,5 +166,4 @@ class Code implements ActionListener
         ok=0;
         return checked;
     }
-
 }
