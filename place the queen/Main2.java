@@ -120,12 +120,15 @@ class Code implements ActionListener
         if(e.getSource()==undo){
             if(top>=0) {
                 button[undoarray[top][0]][undoarray[top][1]].setText("");
+                select[undoarray[top][0]][undoarray[top][1]]=false;
                 queens[top][0] = 30;
                 queens[top][1] = 40;
                 undoarray[top][0] = 89;
                 undoarray[top][1] = 67;
                 top--;
                 howmany--;
+
+                restore();
             }
         }
     }
