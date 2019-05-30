@@ -1,0 +1,4 @@
+main program :
+		tells how to place a queen in an chess board using java awt
+main2 program:
+		updated version of a main program contains an undo operation
