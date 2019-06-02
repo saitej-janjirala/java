@@ -1,12 +1,10 @@
 package com.company;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Main2{
-
     public static void main(String[] args) {
         new Code();
     }
@@ -80,7 +78,6 @@ class Code implements ActionListener {
         panel.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         for(i=0;i<3;i++){
@@ -191,7 +188,6 @@ class Code implements ActionListener {
                 n--;
                 undotop--;
             }
-
         }
     }
     void reset(){
