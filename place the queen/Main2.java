@@ -3,7 +3,6 @@ import javax.swing.text.StyledEditorKit;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 public class Main2{
 
     public static void main(String[] args){
@@ -47,7 +46,6 @@ class Code implements ActionListener
         playagian.setBackground(Color.CYAN);
         for(i=0;i<8;i++)
         {
-
                 queens[i][0]=30;
                 queens[i][1]=40;
         }
@@ -59,7 +57,6 @@ class Code implements ActionListener
         {
             for(j=0;j<8;j++)
             {
-
                 select[i][j]=false;
                 button[i][j]=new JButton("");
                 button[i][j].setFont(myfont);
@@ -108,7 +105,6 @@ class Code implements ActionListener
                                     text.setText("CHECK THE SIDES AND DIAGONALS");
                             }
                         }
-
                     }
                 }
             }
@@ -117,7 +113,6 @@ class Code implements ActionListener
             new Code();
         }
         if(e.getSource()==undo){
-
             if(wrong>0){
                 restore();
             }
@@ -148,16 +143,13 @@ class Code implements ActionListener
         for (m = 0; m < 8; m++) {
          if(queens[m][0] == a1 || queens[m][1] == a2 || (queens[m][0]+queens[m][1]==a1+a2)||(queens[m][1]+a1==queens[m][0]+a2))
          {
-
              checked = false;
              break;
          }
          else
          {
                 ok++;
-
                 if(ok==8){
-
                     checked = true;
                     ok=0;
                 }
