@@ -29,12 +29,13 @@ class Server
 			
 			if(in.equals("over"))
 			{
-				System.out.println("client:"+in);
+				System.out.println(" 	client:"+in);
 				break;
 			}
 			else
 			{
-				System.out.println("client:"+in);
+				System.out.println("\n	client:"+in);
+			
 			}
 		}
 		

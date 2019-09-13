@@ -17,12 +17,13 @@ class Client
 			String in=dis.readUTF();
 			if(in.equals("over"))
 			{
-				System.out.println("server:"+in);
+				System.out.println("	server:"+in);
 				break;
 			}
 			else
 			{
-				System.out.println("server:"+in);
+				System.out.println("	server:"+in);
+				System.out.println("\n");
 			}
 				
 			String out=S.nextLine();
